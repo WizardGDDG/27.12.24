@@ -1,0 +1,44 @@
+#include <iostream>
+
+using namespace std;
+void copyArray(int* sourceArr, int* destArr, int size) 
+{
+    
+    int* sourcePtr = sourceArr;
+    int* destPtr = destArr;
+
+   
+    for (int i = 0; i < size; ++i) 
+    {
+        *destPtr = *sourcePtr;  
+        sourcePtr++;            
+        destPtr++;              
+    }
+}
+
+int main() 
+{
+    int sourceArr[] = {1, 2, 3, 4, 5};
+    int size = sizeof(sourceArr) / sizeof(sourceArr[0]);
+
+    
+    int destArr[size];
+
+    cout << "Исходный массив: ";
+    for (int i = 0; i < size; ++i) 
+    {
+        std::cout << sourceArr[i] << " ";
+    }
+    cout << std::endl;
+
+    copyArray(sourceArr, destArr, size);  
+
+    cout << "Скопированный массив: ";
+    for (int i = 0; i < size; ++i) 
+    {
+        std::cout << destArr[i] << " ";
+    }
+    cout << std::endl;
+
+    return 0;
+}
