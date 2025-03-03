@@ -1,44 +1,39 @@
 #include <iostream>
-
 using namespace std;
-void copyArray(int* sourceArr, int* destArr, int size) 
+
+void Rrr(int arr[],int arr2[],int size)
 {
     
-    int* sourcePtr = sourceArr;
-    int* destPtr = destArr;
-
-   
-    for (int i = 0; i < size; ++i) 
+    int* pa;
+    int temp;
+    for (int i = 0; i < size; i++)
     {
-        *destPtr = *sourcePtr;  
-        sourcePtr++;            
-        destPtr++;              
+        pa = &arr[i];
+        temp = arr2[i];
+        arr2[i] = *pa;
+        arr[i] = temp;
+    }
+
+
+    for (int i = 0; i < 6; i++)
+    {
+        cout << arr[i] << " ";
+        
+    }
+    cout << endl;
+    for (int i = 0; i < 6; i++)
+    {
+        cout << arr2[i] << " ";
+
     }
 }
-
-int main() 
+int main()
 {
-    int sourceArr[] = {1, 2, 3, 4, 5};
-    int size = sizeof(sourceArr) / sizeof(sourceArr[0]);
-
+    setlocale(LC_ALL, "rus");
+    int arr[6] = { 0,1,2,3,4,5 };
+    int arr2[6] = { 6,7,8,9,10,11 };
+    int size = sizeof(arr) / sizeof(arr[0]);
+    Rrr(arr,arr2,size);
     
-    int destArr[size];
-
-    cout << "Исходный массив: ";
-    for (int i = 0; i < size; ++i) 
-    {
-        cout << sourceArr[i] << " ";
-    }
-    cout << endl;
-
-    copyArray(sourceArr, destArr, size);  
-
-    cout << "Скопированный массив: ";
-    for (int i = 0; i < size; ++i) 
-    {
-        cout << destArr[i] << " ";
-    }
-    cout << endl;
-
-    return 0;
+    
 }
