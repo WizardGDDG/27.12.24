@@ -1,46 +1,32 @@
 #include <iostream>
-
-using namespace std;
-
-void copyArrayReversed(int* sourceArr, int* destArr, int size) 
+void rf(int arr[], int size)
 {
-   
-    int* sourcePtr = sourceArr;
-    
-    int* destPtr = destArr + size - 1;
-
-    
-    for (int i = 0; i < size; ++i) 
-    {
-        *destPtr = *sourcePtr; 
-        sourcePtr++;           
-        destPtr--;             
-    }
+	int arr2[5] = {0,0,0,0,0};
+	int size2 = sizeof(arr2) / sizeof(arr2[0]);
+	int* pArr = arr;
+	int* pArr2 = arr2;
+	pArr2 += size2 - 1;
+	int a = 0;
+	while (a != size)
+	{
+		*pArr2 = *pArr;
+		pArr2--;
+		pArr++;
+		a++;
+	}
+	for (int i = 0; i < size; i++)
+	{
+		std::cout << arr2[i];
+	}
 }
 
-int main() 
+
+int main()
 {
-    int sourceArr[] = {1, 2, 3, 4, 5};
-    int size = sizeof(sourceArr) / sizeof(sourceArr[0]);
+	int arr[5] = { 1,2,3,4,5};
+	int size = sizeof(arr) / sizeof(arr[0]);
+	rf(arr,size);
 
-    
-    int destArr[size];
-
-    cout << "Исходный массив: ";
-    for (int i = 0; i < size; ++i) 
-    {
-        cout << sourceArr[i] << " ";
-    }
-    cout << endl;
-
-    copyArrayReversed(sourceArr, destArr, size); 
-
-    cout << "Скопированный массив в обратном порядке: ";
-    for (int i = 0; i < size; ++i) 
-    {
-        cout << destArr[i] << " ";
-    }
-    cout << endl;
-
-    return 0;
+	
 }
+
